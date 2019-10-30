@@ -23,15 +23,11 @@ class SuperToken implements ISMToken
     public function getToken()
     {
 
-        $clientId ="ju16a6m81mhid5ue1z3v2g0uh";
-        $email = "sergey@kolsov.ru";
-        $name = "Sergey Kolsov";
-
-        $this->downloader->setUrl('https://api.supermetrics.com/assignment'."/register");
+        $this->downloader->setUrl(Config::getInstance()->API_BASE_URL."/register");
         $token = $this->downloader->post([
-            'client_id' =>$clientId,
-            'email' => $email,
-            'name' => $name
+            'client_id' =>Config::getInstance()->clientId,
+            'email' => Config::getInstance()->email,
+            'name' => Config::getInstance()->name
         ]);
 
         return $token->sl_token;
