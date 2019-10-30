@@ -49,14 +49,11 @@ class HelperPosts
 
     public static function groupByWeekCount(array $posts)
     {
-        $postCollections  = collect($posts);
-        $grouped = $postCollections->groupBy([
-            'week',
-        ], $preserveKeys = true);
+        $grouped = self::groupBy($posts, 'week');
 
-        $groupCount = $grouped->map(function ($item, $key) {
-            return collect($item)->count();
-        });
+        $groupCount = array_map(function ($item) {
+            return count($item);
+        }, $grouped);
 
         return $groupCount;
     }
