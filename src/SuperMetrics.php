@@ -73,8 +73,6 @@ class SuperMetrics implements ISuperMetrics
         $conf['API_BASE_URL'] = 'https://api.supermetrics.com/assignment';
 
         $token = new SuperToken();
-        var_dump($token->getToken());
-        die;
         $this->downloader->setUrl(sprintf($conf['api_url_mask'], $conf['API_BASE_URL']."/posts", $page, $token->getToken()));
 
         return $this->downloader->get();

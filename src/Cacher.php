@@ -24,7 +24,7 @@ class Cacher implements CacherInterface
 
     function put($key, $value)
     {
-        $this->cacher->store($key, $value,$this->minutes);
+        $this->cacher->store($key, $value, $this->minutes);
     }
 
     function get($key)
