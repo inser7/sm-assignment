@@ -3,9 +3,7 @@
 namespace SuperMetrics;
 
 use SuperMetrics\CacherInterface;
-use Phpfastcache\CacheManager;
-use Phpfastcache\Config\Config;
-use Phpfastcache\Core\phpFastCache;
+use SuperMetrics\Cache\Cache;
 /**
  * The implementation is responsible for putting/getting cached data.
  *
@@ -17,39 +15,20 @@ class Cacher implements CacherInterface
 
     private static $_instance = null;
 
-    private function __construct () {
+    public  function __construct () {
 
         $this->minutes = 60;
-        CacheManager::setDefaultConfig(new Config([
-            "path" => sys_get_temp_dir(),
-            "itemDetailedDate" => false
-        ]));
 
-        $this->cacher = CacheManager::getInstance('files');
-    }
-
-    private function __clone () {}
-    private function __wakeup () {}
-
-    public static function getInstance()
-    {
-        if (self::$_instance != null) {
-            return self::$_instance;
-        }
-
-        return new self;
+        $this->cacher = new Cache();
     }
 
     function put($key, $value)
     {
-        $CachedString =  $this->cacher->getItem($key);
-        $CachedString->set($value)->expiresAfter($this->minutes);
-        $this->cacher->save($CachedString);
+        $this->cacher->store($key, $value,$this->minutes);
     }
 
     function get($key)
     {
-        $CachedString = $this->cacher->getItem($key);
-        return $CachedString->get();
+        return $this->cacher->retrieve($key);
     }
 }

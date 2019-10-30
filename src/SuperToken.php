@@ -4,10 +4,10 @@
 namespace SuperMetrics;
 
 
+use SuperMetrics\Cacher;
 use SuperMetrics\Downloader;
 use SuperMetrics\DownloaderInterface;
 use SuperMetrics\ISMToken;
-use SuperMetrics\Cacher;
 
 class SuperToken implements ISMToken
 {
@@ -16,7 +16,7 @@ class SuperToken implements ISMToken
 
     public function __construct() {
         $this->downloader = new Downloader();
-        $cacher = Cacher::getInstance();
+        $cacher = new Cacher();
         $this->downloader->setCacher($cacher);
     }
 

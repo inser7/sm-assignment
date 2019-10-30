@@ -6,6 +6,7 @@ use SuperMetrics\Downloader;
 use SuperMetrics\ISuperMetrics;
 use SuperMetrics\SuperToken;
 use Carbon\Carbon;
+use SuperMetrics\Cacher;
 
 class SuperMetrics implements ISuperMetrics
 {
@@ -14,7 +15,7 @@ class SuperMetrics implements ISuperMetrics
 
     public function __construct() {
         $this->downloader = new Downloader();
-        $cacher = Cacher::getInstance();
+        $cacher = new Cacher();
         $this->downloader->setCacher($cacher);
     }
 
@@ -72,6 +73,8 @@ class SuperMetrics implements ISuperMetrics
         $conf['API_BASE_URL'] = 'https://api.supermetrics.com/assignment';
 
         $token = new SuperToken();
+        var_dump($token->getToken());
+        die;
         $this->downloader->setUrl(sprintf($conf['api_url_mask'], $conf['API_BASE_URL']."/posts", $page, $token->getToken()));
 
         return $this->downloader->get();

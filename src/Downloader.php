@@ -12,33 +12,16 @@ use SuperMetrics\DownloaderInterface;
 class Downloader implements DownloaderInterface
 {
     private $url;
-
-    private static $_instance = null;
-
-    private function __clone () {}
-    private function __wakeup () {}
-
-    public static function getInstance()
-    {
-        if (self::$_instance != null) {
-            return self::$_instance;
-        }
-
-        return new self;
-    }
-
+    private $cacher;
 
     public function setUrl($url) {
         $this->url = $this->escapeUrl($url);
     }
 
 
-    private $cacher;
-
     public function setCacher(CacherInterface $c) {
         $this->cacher = $c;
     }
-
 
     /**
      * URL escaping
@@ -50,7 +33,6 @@ class Downloader implements DownloaderInterface
     private function escapeUrl($url) {
         return str_replace(' ', '%20', $url);
     }
-
 
     function get() {
         if ( ! $this->url) {

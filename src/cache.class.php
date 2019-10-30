@@ -1,5 +1,5 @@
 <?php
-namespace Cache;
+namespace SuperMetrics\Cache;
 
 /**
  * Simple Cache class
