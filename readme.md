@@ -35,9 +35,9 @@ chown -R www-data:www-data cache
 ```
 
 
-## 
+## Live demo
 
-Monthly stats:  http://localhost:8000//monthly.php?month=8
+Monthly stats:  http://supermetrics.kolsov.ru/monthly.php?month=8
 
-Year stats:  http://localhost:8000/year.php
+Year stats:  http://supermetrics.kolsov.ru/year.php
 
