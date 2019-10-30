@@ -1,0 +1,14 @@
+{
+    "require": {
+        "guzzlehttp/guzzle": "^6.4",
+        "nesbot/carbon": "^2.25",
+        "phpfastcache/phpfastcache": "^7.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "SuperMetrics\\": "src/"
+        }
+    }
+}
+
+
