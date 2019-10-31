@@ -6,10 +6,10 @@ namespace SuperMetrics;
 
 use SuperMetrics\Cacher;
 use SuperMetrics\Downloader;
-use SuperMetrics\DownloaderInterface;
-use SuperMetrics\ISMToken;
+use SuperMetrics\Contracts\DownloaderInterface;
+use SuperMetrics\Contracts\SuperTokenInterface;
 
-class SuperToken implements ISMToken
+class SuperToken implements SuperTokenInterface
 {
 
     private $downloader;

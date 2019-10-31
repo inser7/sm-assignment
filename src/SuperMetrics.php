@@ -4,12 +4,12 @@ namespace SuperMetrics;
 
 use SuperMetrics\Config;
 use SuperMetrics\Downloader;
-use SuperMetrics\ISuperMetrics;
+use SuperMetrics\Contracts\SuperMetricsInterface;
 use SuperMetrics\SuperToken;
 use Carbon\Carbon;
 use SuperMetrics\Cacher;
 
-class SuperMetrics implements ISuperMetrics
+class SuperMetrics implements SuperMetricsInterface
 {
     private $downloader;
     private $posts;
