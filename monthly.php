@@ -12,9 +12,9 @@ $Metrics = new SuperMetrics();
 $monthlyPosts = $Metrics->getPosts()->postsOfMonth($id);
 
 $data = [
-    'Average character length' => round(HelperPosts::avgPostLength($monthlyPosts),2),
-    'Average number of posts per user' => round(HelperPosts::avgPostsPerUser($monthlyPosts),2),
-    'Longest post by character length' => HelperPosts::longPost($monthlyPosts)
+    'Average_character_length' => round(HelperPosts::avgPostLength($monthlyPosts),2),
+    'Average_number_of_posts_per_user' => round(HelperPosts::avgPostsPerUser($monthlyPosts),2),
+    'Longest_post_by_character_length' => HelperPosts::longPost($monthlyPosts)
 ];
 header('Content-Type: application/json');
 echo new Response(false, $data);
