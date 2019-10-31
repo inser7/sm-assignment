@@ -1,28 +1,29 @@
 <?php
 
 
-namespace SuperMetrics;
+namespace Tests\Unit;
 
-
+use PHPUnit\Framework\TestCase;
 use SuperMetrics\Cacher;
+use SuperMetrics\Config;
 use SuperMetrics\Downloader;
-use SuperMetrics\Contracts\DownloaderInterface;
-use SuperMetrics\Contracts\SuperTokenInterface;
 
-class SuperToken implements SuperTokenInterface
+class SuperTokenTest extends TestCase
 {
 
+    protected $client;
     private $downloader;
+    private $posts;
 
-    public function __construct() {
+    protected function setUp()
+    {
         $this->downloader = new Downloader();
         $cacher = new Cacher(Config::getInstance()->cacheTime);
         $this->downloader->setCacher($cacher);
     }
 
-    public function getToken():string
+    public function testGet_ValidYToken()
     {
-
         $this->downloader->setUrl(Config::getInstance()->API_BASE_URL."/register");
         $token = $this->downloader->post([
             'client_id' =>Config::getInstance()->clientId,
@@ -30,6 +31,9 @@ class SuperToken implements SuperTokenInterface
             'name' => Config::getInstance()->name
         ]);
 
-        return $token->sl_token;
+       $token= $token->sl_token;
+
+       $this->assertIsString($token);
+       $this->assertStringMatchesFormat('%s_%s_%s', $token); //smslt_020c8e25a2fbbff_d6d0fbe6f164
     }
 }

@@ -22,7 +22,6 @@ class Response
     public function __toString()
     {
         if ( ! $this->status) {
-            header('Content-Type: application/json');
             return json_encode($this);
         }
 
