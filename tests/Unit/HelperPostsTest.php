@@ -5,10 +5,7 @@ namespace Tests\Unit;
 
 
 use PHPUnit\Framework\TestCase;
-use SuperMetrics\Cacher;
-use SuperMetrics\Config;
-use SuperMetrics\Downloader;
-use SuperMetrics\HelperPosts;
+use SuperMetrics\Helpers\HelperPosts;
 use SuperMetrics\SuperMetrics;
 
 class HelperPostsTest extends TestCase

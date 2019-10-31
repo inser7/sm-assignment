@@ -3,7 +3,7 @@ require __DIR__ . '/vendor/autoload.php';
 
 use SuperMetrics\Response;
 use SuperMetrics\SuperMetrics;
-use SuperMetrics\HelperPosts;
+use SuperMetrics\Helpers\HelperPosts;
 
 $id = $_GET["month"];
 

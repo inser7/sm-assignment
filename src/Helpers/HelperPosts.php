@@ -1,5 +1,5 @@
 <?php
-namespace SuperMetrics;
+namespace SuperMetrics\Helpers;
 
 
 class HelperPosts
