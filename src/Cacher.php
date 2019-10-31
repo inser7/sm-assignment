@@ -2,7 +2,7 @@
 
 namespace SuperMetrics;
 
-use SuperMetrics\CacherInterface;
+use SuperMetrics\Contracts\CacherInterface;
 use SuperMetrics\Cache\Cache;
 /**
  * The implementation is responsible for putting/getting cached data.

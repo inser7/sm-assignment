@@ -2,8 +2,8 @@
 
 namespace SuperMetrics;
 
-use SuperMetrics\CacherInterface;
-use SuperMetrics\DownloaderInterface;
+use SuperMetrics\Contracts\CacherInterface;
+use SuperMetrics\Contracts\DownloaderInterface;
 
 /**
  * The implementation is responsible for getting raw data from specified URL/path.

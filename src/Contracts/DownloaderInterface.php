@@ -1,6 +1,6 @@
 <?php
 
-namespace SuperMetrics;
+namespace SuperMetrics\Contracts;
 
 /**
  * This interface is used to guarantee correct method and it's argument existing.
