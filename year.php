@@ -2,7 +2,7 @@
 require __DIR__ . '/vendor/autoload.php';
 
 use SuperMetrics\SuperMetrics;
-use SuperMetrics\HelperPosts;
+use SuperMetrics\Helpers\HelperPosts;
 use SuperMetrics\Response;
 
 $Metrics = new SuperMetrics();

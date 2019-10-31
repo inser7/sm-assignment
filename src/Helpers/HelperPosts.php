@@ -45,7 +45,17 @@ class HelperPosts
         return max($newCol);
     }
 
-    public static function groupByWeekCount(array $posts)
+    function prepareJsonForYear(array $groupCount):array
+    {
+        $result = array();
+
+        array_walk($groupCount, function (&$value,$key) use (&$result){
+            $result[] = ['week'=>$value, 'totalPosts'=>$key];
+        });
+        return $result;
+    }
+
+    public static function groupByWeekCount(array $posts):array
     {
         $grouped = self::groupBy($posts, 'week');
 
@@ -53,6 +63,6 @@ class HelperPosts
             return count($item);
         }, $grouped);
 
-        return $groupCount;
+        return self::prepareJsonForYear($groupCount);
     }
 }
