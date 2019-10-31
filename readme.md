@@ -41,3 +41,7 @@ Monthly stats:  http://supermetrics.kolsov.ru/monthly.php?month=8
 
 Year stats:  http://supermetrics.kolsov.ru/year.php
 
+### Testing
+
+Execute `./vendor/bin/phpunit` to test project components.
+
