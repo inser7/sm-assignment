@@ -13,7 +13,6 @@ class SuperTokenTest extends TestCase
 
     protected $client;
     private $downloader;
-    private $posts;
 
     protected function setUp()
     {

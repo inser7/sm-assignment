@@ -1,6 +1,4 @@
 <?php
-
-
 namespace SuperMetrics;
 
 
@@ -14,7 +12,7 @@ class HelperPosts
         return $resultArr;
     }
 
-    public static function avgPostLength(array $posts)
+    public static function avgPostLength(array $posts):float
     {
         $newCol = array();
         foreach ($posts as $post){
@@ -26,7 +24,7 @@ class HelperPosts
         return $avg;
     }
 
-    public static function avgPostsPerUser(array $posts)
+    public static function avgPostsPerUser(array $posts):float
     {
         $grouped = self::groupBy($posts, 'from_id');
 
@@ -37,7 +35,7 @@ class HelperPosts
         return array_sum($groupCount)/count($groupCount);
     }
 
-    public static function longPost(array $posts)
+    public static function longPost(array $posts):int
     {
         $newCol = array();
         foreach ($posts as $post){
