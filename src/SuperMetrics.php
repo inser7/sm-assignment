@@ -16,7 +16,7 @@ class SuperMetrics implements ISuperMetrics
 
     public function __construct() {
         $this->downloader = new Downloader();
-        $cacher = new Cacher();
+        $cacher = new Cacher(Config::getInstance()->cacheTime);
         $this->downloader->setCacher($cacher);
     }
 
