@@ -16,7 +16,7 @@ class SuperToken implements ISMToken
 
     public function __construct() {
         $this->downloader = new Downloader();
-        $cacher = new Cacher();
+        $cacher = new Cacher(Config::getInstance()->cacheTime);
         $this->downloader->setCacher($cacher);
     }
 

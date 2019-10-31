@@ -10,21 +10,21 @@ use SuperMetrics\Cache\Cache;
  */
 class Cacher implements CacherInterface
 {
-    private $minutes;
+    private $seconds;
     private $cacher;
 
     private static $_instance = null;
 
-    public  function __construct () {
+    public  function __construct ($seconds) {
 
-        $this->minutes = 60;
+        $this->seconds = $seconds;
 
         $this->cacher = new Cache();
     }
 
     function put($key, $value)
     {
-        $this->cacher->store($key, $value, $this->minutes);
+        $this->cacher->store($key, $value, $this->seconds);
     }
 
     function get($key)
