@@ -1,6 +1,7 @@
 <?php
 require __DIR__ . '/vendor/autoload.php';
 
+use SuperMetrics\Response;
 use SuperMetrics\SuperMetrics;
 use SuperMetrics\HelperPosts;
 
@@ -16,7 +17,6 @@ $data = [
     'Longest post by character length' => HelperPosts::longPost($monthlyPosts)
 ];
 
-header('Content-Type: application/json');
-echo json_encode($data);
+echo new Response(false, $data);
 
 
