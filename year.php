@@ -11,6 +11,7 @@ $poststByWeek = $Metrics->getPosts()->postsByWeek();
 
 $groupByWeek = HelperPosts::groupByWeekCount($poststByWeek);
 
+header('Content-Type: application/json');
 echo new Response(false, $groupByWeek);
 
 
