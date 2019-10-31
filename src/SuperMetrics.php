@@ -4,19 +4,19 @@ namespace SuperMetrics;
 
 use SuperMetrics\Config;
 use SuperMetrics\Downloader;
-use SuperMetrics\ISuperMetrics;
+use SuperMetrics\Contracts\SuperMetricsInterface;
 use SuperMetrics\SuperToken;
 use Carbon\Carbon;
 use SuperMetrics\Cacher;
 
-class SuperMetrics implements ISuperMetrics
+class SuperMetrics implements SuperMetricsInterface
 {
     private $downloader;
     private $posts;
 
     public function __construct() {
         $this->downloader = new Downloader();
-        $cacher = new Cacher();
+        $cacher = new Cacher(Config::getInstance()->cacheTime);
         $this->downloader->setCacher($cacher);
     }
 

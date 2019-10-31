@@ -6,17 +6,17 @@ namespace SuperMetrics;
 
 use SuperMetrics\Cacher;
 use SuperMetrics\Downloader;
-use SuperMetrics\DownloaderInterface;
-use SuperMetrics\ISMToken;
+use SuperMetrics\Contracts\DownloaderInterface;
+use SuperMetrics\Contracts\SuperTokenInterface;
 
-class SuperToken implements ISMToken
+class SuperToken implements SuperTokenInterface
 {
 
     private $downloader;
 
     public function __construct() {
         $this->downloader = new Downloader();
-        $cacher = new Cacher();
+        $cacher = new Cacher(Config::getInstance()->cacheTime);
         $this->downloader->setCacher($cacher);
     }
 
