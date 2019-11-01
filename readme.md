@@ -26,8 +26,8 @@ NOTE: Please do not use any existing framework such as Laravel, Symfony, Django 
 Just follow next instructions:
 
 ```
-git clone git@github.com:inser7/sm-assignment-ver2.git
-cd sm-assignment-ver2
+git clone git@github.com:inser7/sm-assignment.git
+cd sm-assignment
 composer install
 mkdir cache
 chown -R www-data:www-data cache
