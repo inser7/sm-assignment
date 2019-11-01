@@ -37,6 +37,8 @@ chown -R www-data:www-data cache
 
 ## Live demo
 
+http://supermetrics.kolsov.ru
+
 Monthly stats:  http://supermetrics.kolsov.ru/monthly.php?month=8
 
 Year stats:  http://supermetrics.kolsov.ru/year.php
