@@ -7,7 +7,7 @@ use SuperMetrics\Response;
 
 $Metrics = new SuperMetrics();
 
-$poststByWeek = $Metrics->getPosts()->postsOfMonth();
+$poststByWeek = $Metrics->getPosts()->postsByWeek();
 
 $groupByWeek = HelperPosts::groupByWeekCount($poststByWeek);
 
