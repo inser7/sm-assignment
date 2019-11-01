@@ -1,4 +1,29 @@
+<?php
+require __DIR__ . '/vendor/autoload.php';
 
+use SuperMetrics\SuperMetrics;
+use SuperMetrics\Helpers\HelperPosts;
+
+$monthNames = [
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December',
+];
+
+$Metrics = new SuperMetrics();
+$Month = $Metrics->getPosts()->getMonth();
+$availableMonth = HelperPosts::groupBy($Month,'month');
+
+?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -38,18 +63,13 @@
                 <form class="form-inline">
                     <label class="sr-only" for="monthSelect">Select month</label>
                     <select class="form-control mb-2 mr-sm-2"  id="monthSelect">
-                        <option value="0">Jan</option>
-                        <option value="1">Feb</option>
-                        <option value="2">Mar</option>
-                        <option value="3">Apr</option>
-                        <option value="4">May</option>
-                        <option value="5">June</option>
-                        <option value="6">July</option>
-                        <option value="7">August</option>
-                        <option value="8" selected>Semptember</option>
-                        <option value="9">October</option>
-                        <option value="10">November</option>
-                        <option value="11">December</option>
+                        <?php
+                        for($i=0; $i<count($monthNames); $i++){
+                            if(array_key_exists($i, $availableMonth)){
+                                echo "<option value=".$i.">".$monthNames[$i]."</option>";
+                            }
+                        }
+                        ?>
                     </select>
 
                     <button type="button" class="btn btn-warning mb-2 mr-sm-2" id="getByMonth">Get by month</button>

@@ -31,12 +31,23 @@ class SuperMetrics implements SuperMetricsInterface
         $postsByWeek = [];
 
         foreach($this->posts as $post){
-            $postMonth = Carbon::parse($post['created_time'])->weekOfYear;
+            $weekOfYear = Carbon::parse($post['created_time'])->weekOfYear;
 
-            $postsByWeek[] = ['week' => $postMonth, 'message' => $post['message']];
+            $postsByWeek[] = ['week' => $weekOfYear, 'message' => $post['message']];
         }
 
         return $postsByWeek;
+    }
+
+    public function getMonth()
+    {
+        $monthArray = [];
+
+        foreach($this->posts as $post){
+            $monthArray[] = ['month' => Carbon::parse($post['created_time'])->month];
+        }
+
+        return $monthArray;
     }
 
     public function postsOfMonth(int $month)

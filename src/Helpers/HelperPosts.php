@@ -4,7 +4,7 @@ namespace SuperMetrics\Helpers;
 
 class HelperPosts
 {
-    function groupBy($array, $key) {
+    public static function groupBy($array, $key) {
         $resultArr = array();
         foreach($array as $val) {
             $resultArr[$val[$key]][] = $val;
