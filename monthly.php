@@ -7,9 +7,9 @@ use SuperMetrics\Helpers\HelperPosts;
 
 $id = $_GET["month"];
 
-$Metrics = new SuperMetrics();
+$metrics = new SuperMetrics();
 
-$monthlyPosts = $Metrics->getPosts()->postsOfMonth($id);
+$monthlyPosts = $metrics->getPosts()->postsOfMonth($id);
 
 $data = [
     'Average_character_length' => round(HelperPosts::avgPostLength($monthlyPosts),2),

@@ -19,9 +19,9 @@ $monthNames = [
     'December',
 ];
 
-$Metrics = new SuperMetrics();
-$Month = $Metrics->getPosts()->getMonth();
-$availableMonth = HelperPosts::groupBy($Month,'month');
+$metrics = new SuperMetrics();
+$month = $metrics->getPosts()->getMonth();
+$availableMonth = HelperPosts::groupBy($month,'month');
 
 ?>
 <!doctype html>

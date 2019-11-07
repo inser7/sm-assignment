@@ -5,9 +5,9 @@ use SuperMetrics\SuperMetrics;
 use SuperMetrics\Helpers\HelperPosts;
 use SuperMetrics\Response;
 
-$Metrics = new SuperMetrics();
+$metrics = new SuperMetrics();
 
-$poststByWeek = $Metrics->getPosts()->postsByWeek();
+$poststByWeek = $metrics->getPosts()->postsByWeek();
 
 $groupByWeek = HelperPosts::groupByWeekCount($poststByWeek);
 
